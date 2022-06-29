@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Working With Radio Button</title>
+
+    <script>
+      function calculate(form) {
+        if (form.elements[1].checked) {
+          form.result.value = form.entry.value * 2;
+        } else {
+          form.result.value = form.entry.value * form.entry.value;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <center>
+      <form action="">
+        <b>Value : </b>
+        <input type="text" name="entry" value="0" /> <br />
+        <b>Action : </b> <br />
+        <input
+          type="radio"
+          name="r1"
+          id=""
+          value="twice"
+          onclick="calculate(this.form)"
+        />
+        Double <br />
+        <input
+          type="radio"
+          name="r1"
+          id=""
+          value="square"
+          onclick="calculate(this.form)"
+        />
+        Square <br />
+        <b>Result : </b><br />
+        <input type="text" name="result" value="0" onfocus="this.blur();" />
+      </form>
+    </center>
+  </body>
+</html>

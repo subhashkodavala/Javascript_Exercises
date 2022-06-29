@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Using Text and button objects in an HTML form</title>
+
+    <script>
+      function calculate(form) {
+        form.results.value = eval(form.entry.value);
+      }
+    </script>
+  </head>
+  <body>
+    <form action="">
+      <input type="text" name="entry" />
+      <input
+        type="button"
+        value="Calculate"
+        onclick="calculate(this.form);"
+      /><br />
+      the result of this expression is :
+      <input type="text" name="results" onfocus="this.blur();" />
+    </form>
+  </body>
+</html>

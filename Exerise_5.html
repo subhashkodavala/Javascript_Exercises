@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reset Form</title>
+
+    <script>
+      function func(f1) {
+        alert("The Entier Form Is Reset");
+      }
+    </script>
+  </head>
+  <body>
+    <form onreset="func(this.form)">
+      client Name : <input type="text" name="txt1" /><br />
+      client Adress : <input type="text" name="txt2" /><br />
+      <input type="radio" name="Radio" id="" /> Male
+      <input type="radio" name="Radio" id="" /> Female<br />
+      <input type="checkbox" name="check" id="" />Employed <br /><br />
+      <input type="reset" value="Reset" name="rst" />
+    </form>
+  </body>
+</html>

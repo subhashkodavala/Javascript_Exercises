@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Working WIth CheckBoxes</title>
+    <script>
+      function calculate(frm, callingfield) {
+        if (callingfield == "result") {
+          if (frm.square.checked) {
+            frm.entry.value = Math.sqrt(frm.result.value);
+          } else {
+            frm.entry.value = frm.result.value / 2;
+          }
+        } else {
+          if (frm.square.checked) {
+            frm.result.value = frm.entry.value * frm.entry.value;
+          } else {
+            frm.result.value = frm.entry.value * 2;
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <form action="">
+      <center>
+        <b
+          >Value :
+          <input
+            type="text"
+            name="entry"
+            onchange="calculate(this.form,this.name);"
+            value="0" /></b
+        ><br />
+        <b>Action</b> (Default-Double) :
+        <input
+          type="checkbox"
+          name="square"
+          id=""
+          onclick="calculate(this.form,this.name);"
+        />
+        Square
+        <br />
+        <b>Result:</b>
+        <input
+          type="text"
+          name="result"
+          onchange="calculate(this.form,this.name);"
+          value="0"
+        />
+      </center>
+    </form>
+  </body>
+</html>

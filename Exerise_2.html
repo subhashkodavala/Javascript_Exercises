@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FORMS</title>
+
+    <script>
+      function Chk(f1) {
+        f1.Check.checked = true;
+        alert("the check box just got checked");
+        f1.Check.checked = false;
+        f1.Radio[0].checked = true;
+        f1.Radio[1].checked = false;
+        alert("the radio button just got checked");
+      }
+    </script>
+  </head>
+  <body>
+    <form action="">
+      Client Name : <input type="text" name="text" value="" /><br /><br />
+      Client Adress : <input type="text" name="text1" id="" /><br /><br />
+      Client Email Adress : <input type="text" name="text2" id="" /><br />
+      <input type="radio" name="Radio" id="" />Male
+      <input type="radio" name="Radio" id="" />Female <br /><br />
+      <input type="checkbox" name="Check" id="" />Eployed <br />
+      <input
+        type="button"
+        value="Set Element Array Value"
+        name="Bt"
+        onclick="Chk(this.form)"
+      />
+    </form>
+  </body>
+</html>
