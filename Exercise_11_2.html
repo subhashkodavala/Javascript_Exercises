@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+
+    <script>
+
+        function display(form) {
+
+            doc = open(" ", "otput");
+            doc.document.write('<BODY BGColor="' + form.bg.value + '" Text="' + form.fg.value);
+            doc.document.write('" Link="' + form.link.value + '" ALink="' + form.alink.value);
+            doc.document.write('" VLink="' + form.vlink.value + '">');
+            doc.document.write("<h1> this is Test </h1>  you have selected these colors <br>");
+            doc.document.write('<a href="#">this is a tese link </a> </BODY> ');
+            doc.document.close();
+        }
+    </script>
+</head>
+
+
+<body>
+    <center>
+        <script>
+            document.write('<h1> the color picker </h1> <FORM Method=POST>');
+            document.write('Enter colors : <br>');
+            document.write(
+                'background : <input Name="bg" type=Text value="' +
+                document.bgColor +
+                '"<br>  '
+            );
+            document.write(
+                'Text : <input Name="fg" Type=Text Value="' +
+                document.fgColor +
+                '" <br>  '
+            );
+            document.write(
+                'Link : <input Name="link" Type=Text Value="' +
+                document.linkColor +
+                '" <br>   '
+            );
+            document.write(
+                'Active Link : <input Name="alink" Type=Text Value="' +
+                document.alinkColor +
+                '" <br>  '
+            );
+            document.write(
+                'Followed Link : <input Name="vlink" Type=Text Value="' +
+                document.vlinkColor +
+                '" <br>  '
+            );
+            document.write(
+                '<input onclick="display(this.form);" Type=Button Value="Test" > '
+            );
+            document.write('</FORM>');
+
+            display(document.forms[0]);
+        </script>
+    </center>
+</body>
+
+</html>

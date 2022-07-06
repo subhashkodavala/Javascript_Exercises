@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Subhash's GOODIES SIGN UP FORM</title>
+
+    <style>
+      body {
+        background-color: lightskyblue;
+      }
+    </style>
+    <script>
+      var valueofpass1 = "";
+      var valueofpass2 = "";
+      var whitespace = "\t\n\r";
+
+      function isEmpty(s) {
+        return s == null || s.length == 0;
+      }
+
+      function isWhitespce(s) {
+        var i;
+        if (isEmpty(s)) return true;
+
+        for (i = 0; i < s.length; i++) {
+          var currchar = s.charAt(i);
+          if (whitespace.indexOf(currchar) == -1) {
+            return false;
+          }
+        }
+        return true;
+      }
+
+      function isEmail(eadd) {
+        if (isEmpty(eadd)) 
+        if (isWhitespace(eadd)) return false;
+
+        var i = 1;
+        var sLength = eadd.length;
+
+        while ((i < sLength) && (s.charAt(i) != "@")) {
+          i++;
+        }
+
+        if ((i >= sLength) || (s.charAt(i) != "@")) {
+          return false;
+        } else {
+          i += 2;
+        }
+
+        while ((i < sLength) && (s.charAt(i) != ".")) {
+          i++;
+        }
+
+        if ((i >= slength - 1) || (s.charAt(i) != ".")) {
+          return false;
+        } else {
+          return true;
+        }
+      }
+
+      function isCharInBag(string, bag) {
+        var i;
+
+        for (i = 0; i < string.length; i++) {
+          var charval = s.charAt(i);
+          if (bag.indexOf(charval) == -1) return false;
+        }
+
+        return true;
+      }
+
+      function isNumberInPass(string, bag) {
+        var i, flag;
+        flag = 0;
+
+        for (i = 0; i < string.length; i++) {
+          var charval = s.charAt(i);
+          if (bag.indexOf(charval) == -1) {
+            continue;
+          } else {
+            flag = 1;
+            break;
+          }
+        }
+
+        if (flag == 1) {
+          return true;
+        } else {
+          return false;
+        }
+
+        return false;
+      }
+
+      function verify() {
+        var flag = 0;
+
+        for (i = 0; i <= 3; i++) {
+          if (document.forms[0].elements[i].value == "") {
+            alert(
+              "Please Fill In The " +
+                document.forms[0].elements[i].name +
+                "Field"
+            );
+            document.forms[0].elements[i].focus();
+            flag = 1;
+            break;
+          }
+        }
+
+        if (flag == 1) {
+          return false;
+        }
+
+        if (flag == 0) {
+          var email = document.forms[0].elements[1].value;
+
+          if (!isEmail(email)) {
+            alert("Please Enter The Email Adress In ProPer Format");
+            document.forms[0].elements[1].focus();
+            return false;
+          }
+
+          var passwd = document.forms[0].elements[2].value;
+
+          if (
+            !isCharInBag(
+              passwd,
+              "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+            )
+          ) {
+            alert("password most contain alphabets and number");
+            return false;
+          } else if (passwd.length < 5) {
+            alert("password must be 5 or morecharacters");
+            return false;
+          } else if (passwd.length > 8) {
+            alert("pasword must be 8 or more characters");
+            return false;
+          } else if (!isNumberInPass(passwd, "0123456789")) {
+            alert("password must have atleast one number");
+            return false;
+          } else if (
+            document.forms[0].elements[2].value !=
+            document.forms[0].elements[3].value
+          ) {
+            alert("your Password Do not match reenter and try again");
+            return false;
+          }
+        }
+
+        for (j = 4; j <= 5; j++) {
+          if (document.forms[0].elements[j].checked) {
+            break;
+          } else if (j >= 5) {
+            alert("atleast check one of our services");
+            document.forms[0].elements[j].focus();
+            return false;
+          }
+        }
+
+        return true;
+      }
+
+      function Abort() {
+        history.back();
+      }
+    </script>
+  </head>
+
+  <body>
+    <center>
+      <img
+        src="F:\phone\RADHE KRISHNA\window.jpg"
+        alt=""
+        height="300"
+        width="550"
+      />
+    </center>
+
+    <form action="" method="POST" onSubmit="return verify()">
+      <table
+        align="center"
+        border="2"
+        cellpadding="0"
+        cellspacing="0"
+        size="800"
+      >
+        <tbody>
+          <tr>
+            <td align="right"><b>Login Name : </b></td>
+            <td><input type="text" name="LoginName" /></td>
+          </tr>
+
+          <tr>
+            <td align="right"><b>Email Adress : </b></td>
+            <td><input type="text" name="Email" /></td>
+          </tr>
+
+          <tr>
+            <td align="right"><b>Password : </b></td>
+            <td><input type="password" name="Passwd1" /></td>
+          </tr>
+
+          <tr>
+            <td align="right"><b>Confirm Password : </b></td>
+            <td><input type="password" name="Passwd2" /></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p></p>
+      <table
+        align="center"
+        border="2"
+        cellpadding="0"
+        cellspacing="0"
+        size="800"
+      >
+        <tbody>
+          <tr>
+            <td>
+              <font color="red" face="Verdana" size="1"
+                ><b>PASSWORD RULES :</b></font
+              >
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <font color="red" face="Verdana" size="1"
+                ><b>a password minimum length is five characters</b>
+              </font>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <font color="red" face="Verdana" size="1"
+                ><b>a password maximum length is eight characters</b>
+              </font>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <font color="red" face="Verdana" size="1"
+                ><b>a shoud have at least one digit included</b></font
+              >
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <font color="red" face="Verdana" size="1"
+                ><b
+                  >Other Than alphabets and Digits no other values are
+                  allowed</b
+                ></font
+              >
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <center>
+        <img
+          src="F:\phone\RADHE KRISHNA\round.jpg"
+          alt=""
+          height="25"
+          width="25"
+        />
+        <img
+          src="F:\phone\RADHE KRISHNA\2096249.jpg"
+          alt=""
+          height="25"
+          width="25"
+        />
+        <img
+          src="F:\phone\RADHE KRISHNA\15206.jpg"
+          alt=""
+          height="25"
+          width="25"
+        />
+      </center>
+
+      <table
+        align="center"
+        border="2"
+        cellpadding="0"
+        cellspacing="0"
+        size="800"
+      >
+        <tbody>
+          <tr>
+            <td>
+              <img src="F:\phone\RADHE KRISHNA\15206.jpg" alt="" height="25" />
+            </td>
+            <td>
+              <b>Pen Pals</b
+              ><img src="F:\phone\RADHE KRISHNA\15206.jpg" alt="" height="25" />
+              <input type="checkbox" name="PenPals" value="y" />
+            </td>
+            <td>
+              <b>News Latter</b
+              ><img src="F:\phone\RADHE KRISHNA\15206.jpg" alt="" height="25" />
+              <input type="checkbox" name="NewsLtr" id="" value="y" />
+            </td>
+
+            <td>
+              <img src="F:\phone\RADHE KRISHNA\15206.jpg" alt="" height="25" />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p></p>
+      <p>
+        <center>
+          <input type="submit" value="Submit" />
+          <input type="reset" value="Reset" />
+          <input type="button" value="Abort" onclick="Abort()" />
+        </center>
+      </p>
+    </form>
+  </body>
+</html>

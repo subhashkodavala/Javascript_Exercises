@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+
+    <script>
+      function newcookie(cookiename, value) {
+        document.cookie = cookiename + "=" + value;
+      }
+
+      function getCookie(cookiename) {
+        var cookiefound = false;
+        var start = 0;
+        var end = 0;
+        var cstring = document.cookie;
+        var clength = 0;
+
+        while (clength <= cstring.length) {
+          start = clength;
+          end = start + cookiename.length;
+          if (cstring.substring(start, end) == cookiename) {
+            cookiefound = true;
+            break;
+          }
+          clength++;
+        }
+
+        if (cookifound) {
+          start = end + 1;
+          end = document.cookie.indexOf(";", start);
+          if (end < start) {
+            end = document.cookie.length;
+            var contents = document.cookie.substring(start, end);
+            return contents;
+          } else {
+            var contents = document.cookie.substring(start, end);
+            return contents;
+          }
+        }
+      }
+    </script>
+  </head>
+
+  <body>
+    <script>
+      var thisCookie = document.cookie !== "" && document.cookie != null;
+      var cfirst_name = thisCookie ? getCookie("first_name") : "";
+      var cmiddle_name = thisCookie ? getCookie("middle_name") : "";
+      var clast_name = thisCookie ? getCookie("last_name") : "";
+
+      document.write("<form>");
+      document.write(
+        '<table Border="3" CellPassing="4" CellSpacing="4" Width=100%  >'
+      );
+      document.write(
+        '<tr> <td ColSpan="2" > <b> Personal Details (<font Color="red" > * </font> indicates Required) </b> </td> </tr> '
+      );
+      document.write("<tr>");
+      document.write(
+        '<td Width="25%"> First Name <font Color="red"> * </font> </td>  '
+      );
+      document.write(
+        '<td Width="75%">  <input Name="first_name" onblur="newcookie(this.name,this.value);" Size="20" Types="Text" Value="' +
+          cfirst_name +
+          '"> </td> </tr>  '
+      );
+      document.write("<tr>");
+      document.write('<td Width="25%"> Middle Name </td>  ');
+      document.write(
+        '<td Width="75%">  <input Name="middle_name" onblur="newcookie(this.name,this.value);" Size="20" Types="Text" Value="' +
+          cmiddle_name +
+          '"> </td> </tr>  '
+      );
+      document.write("<tr>");
+      document.write(
+        '<td Width="25%"> Last Name <font Color="red"> * </font> </td>  '
+      );
+      document.write(
+        '<td Width="75%">  <input Name="last_name" onblur="newcookie(this.name,this.value);" Size="20" Types="Text" Value="' +
+          clast_name +
+          '"> </td>'
+      );
+      document.write("</tr></table><br>");
+      document.write("<center>");
+      document.write('<input Type="Submit" Value"="Done">  ');
+      document.write('<input Type="Reset" value="Reset">  ');
+      document.write("</center>");
+      document.write("</form>");
+    </script>
+  </body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SCT'S GUEST BOOK</title>
+    <script>
+      function set(form) {
+        document.forms[0].elements[0].focus();
+      }
+
+      function abort(form) {
+        history.back();
+      }
+
+      function verify(form) {
+        for (i = 0; i <= 2; i++) {
+          if (document.forms[0].elements[i].value == "") {
+            alert(
+              "please fill in the " +
+                document.forms[0].elements[i].name +
+                "field"
+            );
+            document.forms[0].elements[i].focus();
+            return false;
+          }
+          if (document.forms[0].elements[1].value != "") {
+            pass = document.forms[0].elements[1].value.indexOf("@", 0);
+            pass1 = document.forms[0].elements[1].value.indexOf(".", 0);
+            if (pass == -1 || pass1 == -1) {
+              alert("not a valid Email Adress");
+              document.forms[0].elements[1].focus();
+              return (false);
+            }
+          }
+        }
+        return true;
+      }
+
+      function checklen(form) {
+        for (i = 0; i <= 1; i++) {
+          val = document.forms[0].elements[i].value;
+          len = val.length;
+          if (len > 30) {
+            alert("value exceeds 30 characters");
+            document.forms[0].elements[i].value = "";
+            document.forms[0].elements[i].focus();
+          }
+        }
+      }
+    </script>
+  </head>
+
+  <body
+    background="F:\phone\wallpaper\img.jpg"
+    text="Yellow"
+    onload="set(this.form)"
+  >
+    <center>
+      <img src="F:\phone\wallpaper\car.jpg" alt="" width="50%" height="30%" />
+    </center>
+    <p></p>
+    <p>
+      <center>
+        please take a few moments to let us know you were here today.
+        <p></p>
+        <p></p>
+        <form action="" method="POST" onSubmit="return verify(this.form)">
+          <p></p>
+          <p>
+            please Give Us Your Name <br />
+            <input
+              type="text"
+              name="name"
+              size="40"
+              onBlur="checklen(this.form)"
+            />
+            <br />
+          </p>
+
+          <p></p>
+
+          <p>
+            please Give us Your Email Adress <br />
+            <input
+              type="text"
+              name="emailid"
+              size="40"
+              onBlur="checklen(this.form)"
+            />
+            <br />
+          </p>
+
+          <p></p>
+          <p>
+            bounquest or brickbats are Welcome <br />
+            <textarea name="request" id="" cols="65" rows="8"></textarea>
+          </p>
+
+          <p></p>
+
+          <p>
+            can we contact you with information about our products or services.
+            <br /><br />
+            <input type="radio" name="moreinfo" id="" value="y" />
+            <font color="blue">yes</font
+            ><img src="F:\phone\wallpaper\chip.jpg" width="20" height="10" />
+            <input
+              type="radio"
+              name="moreinfo"
+              id=""
+              value="n"
+              checked="true"
+            />
+            <font color="red">No,Thanks</font>
+          </p>
+
+          <p>
+            <input type="Submit" value="Submit" /><input
+              type="Reset"
+              value="Reset"
+            />
+            <input type="Button" value="Abort" onClick="abort(this.form)" />
+          </p>
+        </form>
+
+        <p><b>Thank you For Stopping By Our Web Site</b></p>
+      </center>
+    </p>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+        function makeNewWindow() {
+            var newWindow = prompt("Enter The Document To Go : ", " ");
+            if (!(newWindow == null || newWindow == "")) {
+                window.open(
+                    newWindow,
+                    "",
+                    "status,menubar=yes,resizeable=no,toolbar=no"
+                );
+            } else {
+                var blankwindow = window.open(
+                    "",
+                    "",
+                    "status,menubar=yes,resizeable=no,toolbar=no"
+                );
+                var windowcontent = "<html><body bgcolor=#ffffff><h1>New Window</h1>";
+                windowcontent += "<form><input Name=close onclick=window.close()";
+                windowcontent += "type=Button Value=Close></form></body></html>";
+                blankwindow.document.write(windowcontent);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <form action="">
+        <input name="open" type="button" onclick="makeNewWindow()" value="Open URl" />
+    </form>
+</body>
+
+</html>

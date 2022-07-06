@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Displaying the date and time in browser</title>
+  </head>
+
+  <body>
+    <script language="JavaScript">
+      function begin(form) {
+        form_name = form;
+        time_out = window.setTimeout("display_date()", 500);
+      }
+      function display_date() {
+        form_name.date.value = new Date();
+        time_out = window.setTimeout("display_date()", 1000);
+      }
+
+      function display_clock() {
+        document.write(
+          "<CENTER><FONT Color=red Size=+1><FORM Name=time_form> <br> <br> Current Date & Time : "
+        );
+        document.write(
+          '<INPUT Name=date Size=19  Value="" </FORM> </FONT> </CENTER>'
+        );
+        begin(document.time_form);
+      }
+      display_clock();
+    </script>
+  </body>
+</html>

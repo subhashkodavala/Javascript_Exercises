@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Display A Browser's Attributes</title>
+
+    <script>
+      function displayNavigatorProperties() {
+        with (document) {
+          write("<b> App Name : </b>");
+          writeln(navigator.appName + "<br>");
+          write("<b> App Version : </b>");
+          writeln(navigator.appVersion + "<br>");
+          write("<b> appCodeName : </b>");
+          writeln(navigator.appCodeName + "<br>");
+          write("<b> platform : </b>");
+          writeln(navigator.platform + "<br>");
+          write("<b> useragent : </b>");
+          writeln(navigator.useragent + "<br>");
+          write("<b> Number of mime Types : </b>");
+          writeln(navigator.mimeTypes.length + "<br>");
+          write("<b> Number Of Plugins : </b>");
+          writeln(navigator.plugins.length);
+        }
+      }
+
+      function displayExplorerProperties() {
+        with (document) {
+          write("<b> App Name : </b>");
+          writeln(navigator.appName + "<br>");
+          write("<b> app Version : </b>");
+          writeln(navigator.appVersion);
+          write("<b> appMinorVersion : </b>");
+          writeln(navigator.appMinorVersion);
+          write("<b> app code name : </b>");
+          writeln(navigator.appCodeName + "<br>");
+          write("<b> platform : </b>");
+          writeln(navigator.platform + "<br>");
+          write("<b> cpuClass :  </b>");
+          writeln(navigator.cpuClass);
+          write("<b> user agent : </b>");
+          writeln(navigator.useragent);
+          write("<b> cookieEnabled :  </b>");
+          writeln(navigator.cookieEnabled);
+          write("<b> browser Lanuage :  </b>");
+          writeln(navigator.browserLanguage);
+          write("<b> user Language :  </b>");
+          writeln(navigator.userLanguage);
+          write("<b>System Language :  </b>");
+          writeln(navigator.systemLanguage);
+          write("<b> onLine : </b>");
+          writeln(navigator.onLine);
+          write("<b> Number Of MIME Types : </b>");
+          writeln(navigator.mimetypes.length);
+          write("<b> number of plugins : </b>");
+          writeln(navigator.plugins.length);
+          write("<b> user Profile : </b>");
+          writeln(navigator.userProfile);
+        }
+      }
+
+      function displayBrowserProperties() {
+        if (navigator.appName == "Netscape") displayNavigatorProperties();
+        else if (navigator.appName == "Microsoft Internet Explorer")
+          displayExplorerProperties();
+      }
+      displayBrowserProperties();
+    </script>
+  </head>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Subhash's Pen Pal</title>
+
+  <script>
+    function verify() {
+      for (i = 0; i <= 7; i++) {
+        if (document.forms[0].elements[i].value == "") {
+          alert(
+            "please fill in the " +
+            document.forms[0].elements[i].name +
+            "field"
+          );
+          document.forms[0].elements[i].focus();
+          return false;
+        }
+
+        if (document.forms[0].elements[1].value != "") {
+          pass = document.forms[0].elements[1].value.indexOf("@", 0);
+          pass1 = document.forms[0].elements[1].value.indexOf(".", 0);
+          if (pass == -1 || pass1 == -1) {
+            alert("not a valid Email Adress");
+            document.forms[0].elements[1].focus();
+            return false;
+          }
+        }
+      }
+      return true;
+    }
+
+    function checkdate() {
+      year = document.forms[0].elements[6].value;
+
+      if (year > 1995) {
+        alert("enter proper Year (till 1995) ");
+        document.forms[0].elements[6].focus();
+        return false;
+      }
+
+      monval = document.forms[0].elements[5].value;
+      dtval = document.forms[0].elements[4].value;
+
+      if (dtval > 31 || dtval < 1) {
+        alert("enter proper date ");
+        document.forms[0].elements[4].focus();
+        return false;
+      }
+
+      if (isNaN(monval) != true) {
+        if (monval > 12 || monval < 1) {
+          alert("enter proper month ");
+          document.forms[0].elements[5].focus();
+          return false;
+        }
+      } else {
+        alert("enter the month number ");
+        document.forms[0].elements[5].focus();
+        return false;
+      }
+      return true;
+    }
+
+    function checklen() {
+      for (i = 0; i <= 1; i++) {
+        val = document.forms[0].elements[i].value;
+        len = val.length;
+
+        if (len > 30) {
+          alert("value exceeds 30 characters");
+          document.forms[0].elements[i].value = "";
+          document.forms[0].elements[i].focus();
+        }
+      }
+    }
+
+    function set(form) {
+      document.forms[0].elements[0].focus();
+    }
+
+    function abort(form) {
+      history.back();
+    }
+  </script>
+</head>
+
+<body bgcolor="black" text="lightgray" onload="set(this.form)">
+  <center>
+    <img src="F:\phone\wallpaper\car.jpg" alt="" width="50%" height="30%" />
+  </center>
+  <p>
+  <p>
+    <center>
+      <p>
+      <form action="" method="POST" onSubmit="return verify()">
+
+        <p>
+          please Give Us Your Name <br />
+          <input type="text" name="name" size="40" onBlur="checklen()" />
+          <br />
+
+
+
+
+        <p>
+          please Give us Your Email Adress <br />
+          <input type="text" name="emailid" size="40" onBlur="checklen()" />
+          <br />
+
+        <p>
+          please indicates your sex <br />
+
+          <input type="radio" name="sex" id="" value="m" checked />Male
+          <input type="radio" name="sex" id="" value="f" />FeMale
+        <p>Please enter your DOB as DD/MM/YYYY <br>
+          <input type="text" name="day" size="2">
+          <input type="text" name="month" size="2">
+          <input type="text" name="year" size="4">
+
+        <p>Tell us about your hobbies in below text box <br>
+
+          we"ll keep your penpal information posted for <b>one year</b> from today
+        <p>
+          <textarea name="request" id="" cols="50" rows="10" onfocus="checkdate()"></textarea>
+
+        <p>
+        <p>
+          can we contact you with information about our products or services. <br>
+          <input type="radio" name="moreinfo" id="" value="y" />
+          <font color="blue">yes</font>
+          <input type="radio" name="moreinfo" id="" value="n" checked="true" />
+          <font color="red">No,Thanks</font>
+
+        <p>
+
+
+          <input type="Submit" value="Submit" name="Submit" />
+          <input type="Reset" value="Reset" name="Submit" />
+          <input type="Button" value="Abort" onClick="abort(this.form)" />
+    </center>
+
+    </form>
+
+  <p><b>Thank you For Stopping By Our Web Site</b></center>
+
+</body>
+
+</html>
