@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Elements of A Form</title>
+
+    <script>
+      function checkOut() {
+        for (i = 0; i <= document.servey.elements.length; i++) {
+          if (document.servey.elements[i].value == "") {
+            alert(
+              "Sorry, You Forgot One Of The Required Field . Please Try Again.."
+            );
+            break;
+          }
+        }
+        return false;
+      }
+    </script>
+  </head>
+  <body bgcolor="lightyellow">
+    <h2><i>INFONET SERVICES</i></h2>
+
+    <form action="" name="servey" onsubmit="return checkOut(this.form)">
+      <input type="text" name="firstname" size="30" maxlength="30" />
+      <b>First Name</b>
+      <br /><br />
+
+      <input type="text" name="lastname" size="30" maxlength="30" />
+      <b>Last Name</b>
+      <br /><br />
+
+      <input type="text" name="emailid" size="30" maxlength="30" />
+      <b>E Mail</b>
+      <br /><br />
+
+      <input type="text" name="adress" size="30" maxlength="30" />
+      <b>Adress</b>
+      <br /><br />
+
+      <input type="text" name="city" size="30" maxlength="30" />
+      <b>City</b>
+      <br /><br />
+
+      <input type="text" name="state" size="10" />
+      <b>State</b>
+      <br /><br />
+
+      <input type="text" name="zip" size="6" />
+      <b>Postal Code</b>
+      <br /><br />
+
+      <input type="text" name="country" size="15" />
+      <b>Country</b>
+      <br /><br />
+
+      <input type="submit" value="Submit" />
+      <input type="reset" value="Reset" />
+    </form>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Changing Images</title>
+
+    <script>
+      if (document.images) {
+        rollover = "yes";
+      } else {
+        rollover = "no";
+      }
+
+      if ((rollover = "yes")) {
+        img1on = new Image();
+        img1off = new Image();
+        img1on.src = "images/ind.jpg";
+        img1off.src = "images/k.jpg";
+      }
+
+      function imageSwitchOn(imagename) {
+        if (rollover == "yes") {
+          imageOn = eval(imagename + "on.src");
+          document[imagename].src = imageOn;
+        }
+      }
+
+      function imageSwitchOff(imagename) {
+        if (rollover == "yes") {
+          imageOff = eval(imagename + "off.src");
+          document[imagename].src = imageOff;
+        }
+      }
+    </script>
+  </head>
+
+  <body>
+    <center>
+      <h1>Images</h1>
+
+      <h3>Place Your Mouse Pointer On The Picture</h3>
+      <a
+        href=""
+        onmouseover="imageSwitchOn('img1')"
+        onmouseout="imageSwitchOff('img1')"
+      >
+        <img src="images/k.jpg" alt="" height="200" width="200" name="img1" />
+      </a>
+    </center>
+  </body>
+</html>
